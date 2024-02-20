@@ -1,0 +1,4 @@
+winrt
+pypresence
+requests
+pywin32
