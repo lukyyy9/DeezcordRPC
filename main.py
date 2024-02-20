@@ -17,11 +17,12 @@ async def main():
             if media_info and media_info['title'] != current_song:
                 current_song = media_info['title']
                 remaining_duration = media_info['duration']
+                link = media_info['link']
             elif media_info and media_info['title'] == current_song:
                 remaining_duration -= 15  # Subtract the sleep duration from the remaining duration
 
             if remaining_duration > 0:
-                await rpc.update_rpc(media_info['artist'], current_song, remaining_duration)
+                await rpc.update_rpc(media_info['artist'], current_song, remaining_duration, link)
             else:
                 await rpc.clear_rpc()
                 current_song = None  # Reset the current song

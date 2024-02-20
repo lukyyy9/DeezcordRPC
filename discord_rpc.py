@@ -19,13 +19,13 @@ class DiscordRPC:
         self.rpc = Presence(self.client_id)
         self.rpc.connect()  # Appel bloquant exécuté de manière asynchrone
 
-    async def update_rpc(self, artist, title, duration):
+    async def update_rpc(self, artist, title, duration, link):
         if self.rpc is None:
             return
 
         start_time = time.time()
         # Utilisez partial pour pré-assigner des arguments à la fonction update
-        func = partial(self.rpc.update, state=artist, details=title, start=start_time, end=start_time+duration, large_image="deezer", large_text="DeezcordRPC by @imluky", buttons=[{"label": "Listen on Deezer", "url": "https://www.deezer.com"}, {"label": "Get DeezcordRPC", "url": "https://github.com/lukyyy9/DeezcordRPC"}])
+        func = partial(self.rpc.update, state=artist, details=title, end=start_time+duration, large_image="deezer", large_text="DeezcordRPC by @imluky", buttons=[{"label": "Listen on Deezer", "url": link}, {"label": "Get DeezcordRPC", "url": "https://github.com/lukyyy9/DeezcordRPC"}])
         await self._run_in_executor(func)
 
     async def clear_rpc(self):

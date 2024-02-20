@@ -16,9 +16,10 @@ async def get_media_info():
             if data['total'] > 0:  # If at least one match is found
                 song = data['data'][0]  # Take the first matching song
                 duration = song['duration']  # Get the song duration
+                link = song['link'] # Get the song link
                 # Use the duration as needed for the remaining time
                 print(f"Found on Deezer: {title} by {artist}. Duration: {duration} seconds")
-                return {"artist": artist, "title": title, "duration": duration}
+                return {"artist": artist, "title": title, "duration": duration, "link": link}
             else:
                 print("Song not found on Deezer.")
         else:
