@@ -25,7 +25,7 @@ class DiscordRPC:
 
         start_time = time.time()
         # Utilisez partial pour pré-assigner des arguments à la fonction update
-        func = partial(self.rpc.update, state=artist, details=title, start=start_time, end=start_time+duration, large_image="deezer", large_text="DeezcordRPC by @imluky", buttons=[{"label": "Listen on Deezer", "url": "https://www.deezer.com"}, {"label": "Get DeezcordRPC", "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"}])
+        func = partial(self.rpc.update, state=artist, details=title, start=start_time, end=start_time+duration, large_image="deezer", large_text="DeezcordRPC by @imluky", buttons=[{"label": "Listen on Deezer", "url": "https://www.deezer.com"}, {"label": "Get DeezcordRPC", "url": "https://github.com/lukyyy9/DeezcordRPC"}])
         await self._run_in_executor(func)
 
     async def clear_rpc(self):
